@@ -11234,14 +11234,15 @@ L0:
     SetNetworkconnectedEventFlagID(eventFlagId4, ON);
 });
 
-
+//radahn event target
 $Event(90065133, Restart, function() {
     SetCharacterEventTarget(49560800, 49560801);
+    EndEvent();
 });
-
-//teleport stuff for very secret n2 boss
-
+ 
+//radahn teleport
 $Event(90065134, Restart, function() {
+    EndIf(CharacterDead(49560800));
     WaitFor(CharacterHasSpEffect(49560800, 960000));
     WarpCharacterAndCopyFloor(49560800, TargetEntityType.Character, 49560802, 900, 49560802);
     ForceAnimationPlayback(49560800, 20020, false, false, false);
@@ -11263,16 +11264,19 @@ $Event(90065134, Restart, function() {
     RestartEvent();
 });
 
+//radahn bow removal
 $Event(90065135, Restart, function() {
+    EndIf(CharacterDead(49560800));
     WaitFor(CharacterHasSpEffect(49560800, 960006));
     RestartIf(CharacterHasSpEffect(49560800, 46033));
     ForceAnimationPlayback(49560800, 20005, false, false, false);
     RestartEvent();
 });
 
-//radahn meteor failsafe 
+//radahn meteor failsafe
 
 $Event(90065136, Restart, function() {
+    EndIf(CharacterDead(49560800));
     WaitFor(CharacterHasSpEffect(49560800, 46033));
     WaitFixedTimeSeconds(4);
     if (!CharacterHasSpEffect(49560800, 5480))
@@ -11287,6 +11291,7 @@ $Event(90065136, Restart, function() {
     
     RestartEvent();
 });
+
 
 // black knight duo spawn
 $Event(90065137, Restart, function(chrEntityId, chrEntityId2, eventFlagId, eventFlagId2, nameId, eventFlagId3, value) {
