@@ -12754,10 +12754,11 @@ L1:
         SetBossBGM(bgmBossConvParamId, BossBGMState.Start);
     }
     // Fix for missing Manus dummypolyid
-    if (chrEntityId2 == 49630800)
-    {
+    if (chrEntityId2 == 49630800) {
         SpawnOneshotSFX(TargetEntityType.Character, chrEntityId2, 30, sfxId);
         //ActivateGparamOverride(14, 5);
+    } else if (chrEntityId2 == 49780800) {
+        SpawnOneshotSFX(TargetEntityType.Character, chrEntityId2, 850, sfxId);
     }
     else
         SpawnOneshotSFX(TargetEntityType.Character, chrEntityId2, 900, sfxId);
