@@ -74,7 +74,7 @@ $Event(0, Default, function() {
         $InitializeCommonEvent(0, 90015070, 1056402603, 49780000, 49780301);
         $InitializeCommonEvent(0, 90015070, 1028402602, 49780000, 49780301);
     }
-    DisableLockOnPoint(49780800, 220);
+    DisableLockOnPoint(49780800, 221);
 });
 
 $Event(497802800, Default, function(chrEntityId, assetEntityId, chrEntityId2, eventFlagId, eventFlagId2, eventFlagId3) {
