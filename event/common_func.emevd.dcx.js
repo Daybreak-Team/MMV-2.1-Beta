@@ -11237,6 +11237,7 @@ L0:
 //radahn event target
 $Event(90065133, Restart, function() {
     SetCharacterEventTarget(49560800, 49560801);
+    DisableLockOnPoint(49565211, 220);
     EndEvent();
 });
  
