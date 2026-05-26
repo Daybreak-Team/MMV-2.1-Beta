@@ -76,7 +76,7 @@ $Event(0, Default, function() {
     }
     $InitializeEvent(0, 49792800, 49790800, 49790810);
     $InitializeEvent(0, 49792810, 49790810);
-    $InitializeEvent(0, 49792820, 49790810);
+    $InitializeEvent(0, 49792820, 49790800, 49790810);
 });
 
 $Event(49792800, Default, function(chrEntityId1, chrEntityId2){
@@ -96,8 +96,8 @@ $Event(49792810, Default, function(chrEntityId2){
     EndEvent();
 });
 
-$Event(49792820, Default, function(chrEntityId2){
-    WaitFor(HPRatio(chrEntityId2) <= 0.1);
+$Event(49792820, Default, function(chrEntityId1, chrEntityId2){
+    WaitFor(HPRatio(chrEntityId2) <= 0.1 || HPRatio(chrEntityId1) <= 0);
     ClearSpEffect(chrEntityId2, 901300003);
     DisableCharacterHPBarDisplay(chrEntityId2);
     ForceAnimationPlayback(chrEntityId2, 20001, false, false, false);
@@ -106,5 +106,3 @@ $Event(49792820, Default, function(chrEntityId2){
     WaitFixedTimeSeconds(5);
     RestartEvent();
 });
-
-
