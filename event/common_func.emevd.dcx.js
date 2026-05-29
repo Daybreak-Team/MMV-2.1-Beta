@@ -11238,6 +11238,7 @@ L0:
 $Event(90065133, Restart, function() {
     SetCharacterEventTarget(49560800, 49560801);
     DisableLockOnPoint(49565211, 220);
+    DisableCharacterCollision(49565211);
     EndEvent();
 });
  
