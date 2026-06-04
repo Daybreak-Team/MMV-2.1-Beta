@@ -8,6 +8,7 @@
 // ==/EMEVD==
 
 $Event(0, Default, function() {
+    //$InitializeEvent(0, 49722820, 49720800, 11008010, 11008011, 11008012, 11008013, 11008014, 11008015, 61352, 61353, 61354, 61355);
     if (IsMapVariation(0)) {
         if (EventFlag(49720000)) {
             $InitializeCommonEvent(0, 90055000, 49725200, 1, 49722200, 49720201);
@@ -154,4 +155,26 @@ L0:
     DisplayBossHealthBar(Enabled, chrEntityId2, 0, nameId);
 });
 
-
+$Event(49722820, Default, function(chrEntityId, eventflagId, eventflagId2, eventflagId3, eventflagId4, eventflagId5, eventflagId6, speffectId, speffectId2, speffectId3, speffectId4) {
+    SetEventFlagID(eventflagId, OFF);
+    SetEventFlagID(eventflagId2, OFF);
+    SetEventFlagID(eventflagId3, OFF);
+    SetEventFlagID(eventflagId4, OFF);
+    SetEventFlagID(eventflagId5, OFF);
+    SetEventFlagID(eventflagId6, OFF);
+    WaitFor(CharacterHasSpEffect(chrEntityId, speffectId));
+    RandomlySetEventFlagInRange(eventflagId, eventflagId2, ON);
+    RandomlySetEventFlagInRange(eventflagId3, eventflagId4, ON);
+    RandomlySetEventFlagInRange(eventflagId5, eventflagId6, ON);
+    if (EventFlag(eventflagId)) {
+        SetSpEffect(chrEntityId, speffectId2);
+    } 
+    if (EventFlag(eventflagId3)) {
+        SetSpEffect(chrEntityId, speffectId3);
+    }
+    if (EventFlag(eventflagId5)) {
+        SetSpEffect(chrEntityId, speffectId4);
+    }
+    WaitFixedTimeSeconds(0.5);
+    RestartEvent();
+});
